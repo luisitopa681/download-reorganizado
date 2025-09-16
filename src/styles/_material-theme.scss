@@ -1,0 +1,88 @@
+@use '@angular/material' as mat;
+
+// Define colores principales
+$dark-primary-text: rgba(rgb(255, 255, 255), 0.87);
+$light-primary-text: white;
+
+$mat-primary: (
+  50: #fdf8e6,
+  100: #fbedc2,
+  200: #0F265C,
+  300: #0F265C,
+  400: #0F265C,
+  500: #0F265C,
+  600: #0F265C,
+  700: #0F265C,
+  800: #0F265C,
+  900: #0F265C,
+  A100: #ffffff,
+  A200: #fff4e2,
+  A400: #ffe2af,
+  A700: #ffd896,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  )
+);
+
+$mat-accent: (
+  50: #fce4ec,
+  100: #f8bbd0,
+  200: #FFDD00,
+  300: #FFDD00,
+  400: #FFDD00,
+  500: #FFDD00,
+  600: #FFDD00,
+  700: #FFDD00,
+  800: #FFDD00,
+  900: #FFDD00,
+  A100: #FFDD00,
+  A200: #FFDD00,
+  A400: #FFDD00,
+  A700: #FFDD00,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+
+// Definir paletas
+$primary: mat.define-palette($mat-primary, 500);
+$accent: mat.define-palette($mat-accent, A200, A100, A400);
+
+// Crear tema
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Aplicar tema a todos los componentes
+@include mat.all-component-themes($theme);
