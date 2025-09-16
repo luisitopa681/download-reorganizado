@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 
 // Otros módulos
-import { PichinchaDesignSystemModule } from '@pichincha/ds-angular';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { PichinchaDesignSystemModule } from '@pichincha/ds-angular';
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    AmplifyAuthenticatorModule,
-    PichinchaDesignSystemModule
+    AmplifyAuthenticatorModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

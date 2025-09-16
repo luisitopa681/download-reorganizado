@@ -1,0 +1,56 @@
+<div class="grabacion-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Grabaciones Históricas</mat-card-title>
+      <mat-card-subtitle>Acceso a grabaciones del sistema</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <app-loading *ngIf="loading" message="Cargando grabaciones..."></app-loading>
+      
+      <div *ngIf="!loading && grabaciones.length > 0">
+        <mat-table [dataSource]="grabaciones" class="mat-elevation-z8">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let grabacion"> {{grabacion.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="duration">
+            <mat-header-cell *matHeaderCellDef> Duración </mat-header-cell>
+            <mat-cell *matCellDef="let grabacion"> {{grabacion.duration}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+            <mat-cell *matCellDef="let grabacion"> {{grabacion.date | date}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="size">
+            <mat-header-cell *matHeaderCellDef> Tamaño </mat-header-cell>
+            <mat-cell *matCellDef="let grabacion"> {{grabacion.size}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+            <mat-cell *matCellDef="let grabacion">
+              <button mat-icon-button color="primary" (click)="playGrabacion(grabacion)" matTooltip="Reproducir">
+                <mat-icon>play_arrow</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="downloadGrabacion(grabacion)" matTooltip="Descargar">
+                <mat-icon>download</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="['name', 'duration', 'date', 'size', 'actions']"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: ['name', 'duration', 'date', 'size', 'actions'];"></mat-row>
+        </mat-table>
+      </div>
+
+      <div *ngIf="!loading && grabaciones.length === 0" class="no-data">
+        <mat-icon>record_voice_over</mat-icon>
+        <p>No hay grabaciones disponibles</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

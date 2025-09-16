@@ -1,0 +1,27 @@
+<div class="app-container">
+  <!-- Header con autenticación -->
+  <mat-toolbar color="primary" *ngIf="isAuthenticated">
+    <mat-toolbar-row>
+      <span>{{ title }}</span>
+      <span class="spacer"></span>
+      <span>Bienvenido, {{ userName }}</span>
+      <button mat-icon-button (click)="signOut()" matTooltip="Cerrar sesión">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- Contenido principal -->
+  <main class="main-content" [class.authenticated]="isAuthenticated">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Autenticación con Amplify -->
+  <div class="auth-container" *ngIf="!isAuthenticated">
+    <amplify-authenticator>
+      <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+        <!-- Este contenido se mostrará cuando el usuario esté autenticado -->
+      </ng-template>
+    </amplify-authenticator>
+  </div>
+</div>
