@@ -1,0 +1,36 @@
+<div class="home-container">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Bienvenido al Sistema de Grabaciones</mat-card-title>
+      <mat-card-subtitle>Gestión de grabaciones históricas</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="navigation-grid">
+        <mat-card class="nav-card" (click)="navigateToRecords()">
+          <mat-card-content>
+            <mat-icon>library_music</mat-icon>
+            <h3>Registros</h3>
+            <p>Ver y gestionar registros de grabaciones</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="nav-card" (click)="navigateToRecordCards()">
+          <mat-card-content>
+            <mat-icon>credit_card</mat-icon>
+            <h3>Tarjetas de Registro</h3>
+            <p>Administrar tarjetas de registro</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="nav-card" (click)="navigateToGrabaciones()">
+          <mat-card-content>
+            <mat-icon>record_voice_over</mat-icon>
+            <h3>Grabaciones</h3>
+            <p>Acceder a grabaciones históricas</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

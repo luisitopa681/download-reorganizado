@@ -1,0 +1,16 @@
+.nav-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  mat-icon {
+    color: #666;
+  }
+
+  span {
+    margin-left: 16px;
+  }
+}
